@@ -2,6 +2,9 @@
 
 int IoReaderHelper::GetData(char* iWorkBuffer, size_t size)
 {
+	
+
+	
 	return -1;
 }
 
