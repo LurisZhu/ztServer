@@ -30,6 +30,11 @@ private:
 
 	char mWriteBuffer[WORK_BUFFER_SIZE];
 	size_t mToWriteSize/* = 0*/;
+
+	jobqueue<MessagePtr> &_ursjobqueue;
+
+	IoReaderHelper mIoReaderHelper;
+	IoWriterHelper mIoWriterHelper;
 };
 
 typedef boost::share_ptr<IOSession> ZtBaseSocketPtr;

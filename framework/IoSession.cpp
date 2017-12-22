@@ -19,7 +19,7 @@ void IoSession::handle_read_some2( const boost::system::error_code& ec, size_t b
 	}
 
 	unDoneDataSize += bytes_transferred;
-	int dealDataSize = mStreamHandler->AppendData(mWorkBuffer, unDoneDataSize);
+	int dealDataSize = mStreamHandler->appendData(mWorkBuffer, unDoneDataSize);
 	if(dealDataSize < 0)
 	{
 		ZLOG_WARN("invalid stream handler return(%d)", dealDataSize);
@@ -63,4 +63,9 @@ void IoSession::Shutdown()
 		// 	sid(), ec.message().c_str(), ec.value());
 	}
 
+}
+
+void IoSession::submitjob(const MessagePtr& umessage)
+{
+	_ursjobqueue.submitjob(umessage);
 }
